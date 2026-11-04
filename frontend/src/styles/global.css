@@ -1,0 +1,543 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #030906 !important;
+  color: #e9f5ef;
+  font-family: 'DM Sans', sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* =================================
+   FLOODCAST DASHBOARD REFINEMENT
+================================= */
+
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 4%;
+  overflow-x: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0, 105, 65, 0.13), transparent 50%),
+    #030906;
+  color: #e9f5ef;
+}
+
+.dash-header {
+  min-height: 70px;
+  padding: 0 24px;
+  margin-bottom: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid rgba(130, 190, 155, 0.12);
+  border-radius: 14px;
+  background: rgba(9, 24, 16, 0.85);
+}
+
+.header-center {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #8da99a;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dash-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.dash-welcome h1 {
+  margin: 12px 0;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -1.8px;
+}
+
+.dash-welcome h1 span {
+  color: #00d990;
+}
+
+.dash-welcome p {
+  color: #91a69a;
+  font-size: 14px;
+}
+
+.section-eyebrow {
+  color: #00d990;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.demo-status {
+  padding: 11px 15px;
+  border: 1px solid rgba(0, 255, 157, 0.2);
+  border-radius: 30px;
+  background: rgba(0, 255, 157, 0.06);
+  color: #a8d9bd;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.metric-card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid rgba(130, 190, 155, 0.13);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #0d1c13, #08120d);
+}
+
+.metric-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #8da99a;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.metric-card strong {
+  display: block;
+  margin: 20px 0 8px;
+  font-size: 30px;
+  color: #e9f5ef;
+}
+
+.metric-card small {
+  color: #789083;
+  font-size: 11px;
+}
+
+.neutral-value {
+  font-size: 19px !important;
+  color: #d6c18c !important;
+}
+
+.dashboard-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(280px, 0.8fr);
+  align-items: stretch;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.globe-panel,
+.side-panel,
+.bottom-panel {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid rgba(130, 190, 155, 0.13);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #0b1911, #07110b);
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.panel-heading h2 {
+  margin: 7px 0 0;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.live-tag {
+  color: #00d990;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.map-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.map-search {
+  flex: 1 1 190px;
+  min-width: 0;
+}
+
+.layer-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  color: #8da99a;
+}
+
+.dashboard-globe {
+  position: relative;
+  height: 440px;
+  min-height: 340px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 157, 0.13);
+  border-radius: 13px;
+  background: #020806;
+}
+
+.globe-stage,
+.earth-globe {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.map-caption {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #b6d5c3;
+  font-size: 10px;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 18px;
+  color: #8da99a;
+  font-size: 11px;
+}
+
+.map-legend span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.map-legend i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-station,
+.legend-selected {
+  background: #00ff9d;
+}
+
+.legend-risk {
+  background: #d6a34c;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-card,
+.station-status,
+.prediction-card {
+  padding: 19px;
+  border: 1px solid rgba(130, 190, 155, 0.12);
+  border-radius: 12px;
+  background: rgba(15, 34, 23, 0.65);
+}
+
+.location-country {
+  color: #00d990;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.location-card h3 {
+  margin: 13px 0 5px;
+  font-size: 25px;
+}
+
+.location-card p {
+  color: #8da99a;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.coordinate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 17px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(130, 190, 155, 0.1);
+}
+
+.coordinate-row span {
+  color: #789083;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.coordinate-row strong {
+  color: #d5eee0;
+  font-size: 12px;
+}
+
+.station-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cce4d5;
+  font-size: 13px;
+}
+
+.coverage-badge {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  background: rgba(0, 255, 157, 0.08);
+  color: #00d990;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.station-status p {
+  margin-top: 12px;
+  color: #8da99a;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.prediction-empty,
+.empty-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  color: #00c987;
+}
+
+.prediction-empty {
+  min-height: 145px;
+  padding: 15px 5px;
+}
+
+.prediction-empty span,
+.empty-chart strong {
+  color: #cce4d5;
+  font-size: 13px;
+}
+
+.prediction-empty small,
+.empty-chart span {
+  max-width: 270px;
+  color: #81988a;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.empty-chart {
+  min-height: 190px;
+  border: 1px dashed rgba(130, 190, 155, 0.17);
+  border-radius: 10px;
+  background: rgba(4, 14, 8, 0.45);
+}
+
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 0 8px;
+  border-top: 1px solid rgba(130, 190, 155, 0.12);
+  color: #71877a;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* Responsive layout */
+@media (max-width: 1000px) {
+  .dashboard-main {
+    grid-template-columns: 1fr;
+  }
+
+  .side-panel {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .side-panel > .panel-heading {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    padding: 16px;
+  }
+
+  .dash-header {
+    padding: 12px;
+    margin-bottom: 35px;
+  }
+
+  .header-center {
+    display: none;
+  }
+
+  .dash-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 16px;
+  }
+
+  .dashboard-globe {
+    height: 330px;
+  }
+
+  .side-panel,
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .globe-panel,
+  .side-panel,
+  .bottom-panel {
+    padding: 16px;
+  }
+
+  .dashboard-footer {
+    flex-direction: column;
+  }
+}
+button.logout-button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #00d990 !important;
+  padding: 9px 16px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+button.logout-button:hover {
+  color: #8affcb !important;
+}
+/* FLOODCAST — TRANSPARENT DASHBOARD CONTROLS */
+
+/* Notifications and hamburger menu */
+button.icon-button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #c5d9cc !important;
+  cursor: pointer !important;
+}
+
+button.icon-button:hover {
+  color: #00e69a !important;
+}
+
+/* Search bar */
+.map-search {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(130, 190, 155, 0.2) !important;
+  box-shadow: none !important;
+}
+
+.map-search input {
+  appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: #e9f5ef !important;
+}
+
+.map-search input::placeholder {
+  color: #71877a !important;
+}
+
+/* Stations, Rainfall and Risk zones */
+.layer-controls button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  color: #91a69a !important;
+  cursor: pointer !important;
+}
+
+.layer-controls button:hover,
+.layer-controls button.active-layer {
+  color: #00e69a !important;
+  background: rgba(0, 230, 154, 0.06) !important;
+  border-color: rgba(0, 230, 154, 0.25) !important;
+}

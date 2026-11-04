@@ -1,0 +1,29 @@
+
+.register-message {
+  margin-top: 12px;
+  color: #00e69a;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.account-switch {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.account-switch button {
+  background: none;
+  border: none;
+  color: #00e69a;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: color 0.2s ease;
+}
+
+.account-switch button:hover {
+  color: #8affcb;
+}

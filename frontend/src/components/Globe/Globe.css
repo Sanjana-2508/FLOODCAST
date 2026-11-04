@@ -1,0 +1,117 @@
+
+.earth-globe {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #020806;
+
+  box-shadow:
+    0 0 35px rgba(0, 255, 145, 0.2),
+    0 0 90px rgba(0, 255, 145, 0.14),
+    0 0 160px rgba(0, 180, 130, 0.12);
+}
+
+.earth-globe .cesium-viewer-toolbar,
+.earth-globe .cesium-viewer-animationContainer,
+.earth-globe .cesium-viewer-timelineContainer,
+.earth-globe .cesium-viewer-bottom {
+  display: none !important;
+}
+
+.earth-globe .cesium-widget,
+.earth-globe .cesium-widget canvas,
+.earth-globe .cesium-viewer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.earth-globe .cesium-widget-credits {
+  font-size: 9px;
+  opacity: 0.65;
+}
+
+.globe-stage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.globe-stage .earth-globe {
+  width: 86%;
+  height: 86%;
+  min-height: 0;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.orbit {
+  position: absolute;
+  width: 108%;
+  height: 38%;
+  border: 1px solid rgba(0, 255, 157, 0.38);
+  border-radius: 50%;
+  z-index: 3;
+  pointer-events: none;
+  box-shadow:
+    0 0 8px rgba(0, 255, 157, 0.25),
+    inset 0 0 8px rgba(0, 255, 157, 0.12);
+}
+
+.orbit-one {
+  transform: rotate(-25deg);
+  animation: orbitSpin 18s linear infinite;
+}
+
+.orbit-two {
+  width: 115%;
+  height: 48%;
+  transform: rotate(35deg);
+  border-color: rgba(0, 190, 255, 0.28);
+  animation: orbitSpinReverse 25s linear infinite;
+}
+
+.orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #00ff9d;
+  box-shadow:
+    0 0 8px #00ff9d,
+    0 0 20px #00ff9d;
+}
+
+.orbit-two .orbit-dot {
+  background: #00d9ff;
+  box-shadow:
+    0 0 8px #00d9ff,
+    0 0 20px #00d9ff;
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(-25deg);
+  }
+  to {
+    transform: rotate(335deg);
+  }
+}
+
+@keyframes orbitSpinReverse {
+  from {
+    transform: rotate(35deg);
+  }
+  to {
+    transform: rotate(-325deg);
+  }
+}
